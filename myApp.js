@@ -16,7 +16,10 @@ app.use(helmet.hsts({maxAge: timeInSeconds, force: true}));
 
 app.use(helmet.dnsPrefetchControl());
 app.use(helmet.noCache());
-
+app.use(helmet.contentSecurityPolicy({
+  directives: 
+    {defaultSRC: ["'self'"], 
+      scriptSrc: ["'self'", "trusted-cdn.com"]}}));
 
 
 
